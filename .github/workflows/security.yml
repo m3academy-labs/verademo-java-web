@@ -18,4 +18,6 @@ jobs:
 
       - name: Build with Maven
         working-directory: ./app/
-        run: mvn clean package
+        run: |
+          mvn clean package
+          ls -l .target
