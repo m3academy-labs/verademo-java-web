@@ -17,6 +17,7 @@ jobs:
 
     - name: build maven
       run: |
+        cd ./app
         mvn clean package install
         pwd
         ls -l  
