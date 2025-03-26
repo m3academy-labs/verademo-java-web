@@ -21,3 +21,9 @@ jobs:
         run: |
           mvn clean package
           ls -l ./target
+
+      - name: save artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: scan-target
+          path: app/target/verademo.war
