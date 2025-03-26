@@ -46,3 +46,16 @@ jobs:
         run: |
           pwd
           ls -l
+
+      - name: upload and scan 
+        uses: veracode/veracode-uploadandscan-action@0.2.7
+        with:
+          appname: 'm3academy-java-web'
+          createprofile: true
+          teams: 'M3Academy'
+          filepath: 'verademo.war'
+          vid: '${{ secrets.VID }}'
+          vkey: '${{ secrets.VKEY }}'
+          version: "${{ github.run_id }}"
+          scantimeout: 0
+          criticality: 'High'
