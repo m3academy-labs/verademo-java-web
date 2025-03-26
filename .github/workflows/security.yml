@@ -20,4 +20,4 @@ jobs:
         working-directory: ./app/
         run: |
           mvn clean package
-          ls -l .target
+          ls -l ./target
