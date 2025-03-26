@@ -1,0 +1,21 @@
+name: security-actions
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: checkout
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@4
+    
+    - name: setup java
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'zulu'
+        java-version: '8'
+
+    - name: Build with Maven
+      working-directory: ./app/
+      run: mvn clean package
