@@ -27,3 +27,22 @@ jobs:
         with:
           name: scan-target
           path: app/target/verademo.war
+
+  veracode-sast-policy-scan:
+    name: veracode policy scan
+    runs-on: ubuntu-latest
+    needs: [ checkout-and-build ]
+    
+    steps:
+      - name: Check out main branch
+        uses: actions/checkout@v3
+        
+      - name: get archive
+        uses: actions/download-artifact@v4 
+        with:
+          name: scan-target
+
+      - name: list artifact
+        run: |
+          pwd
+          ls -l
