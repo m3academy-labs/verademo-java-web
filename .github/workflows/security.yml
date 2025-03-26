@@ -20,4 +20,4 @@ jobs:
         cd ./app
         mvn clean package install
         pwd
-        ls -l  
+        ls -l ./target
