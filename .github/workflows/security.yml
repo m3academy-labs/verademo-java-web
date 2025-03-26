@@ -1,0 +1,28 @@
+name: security-actions
+
+on:
+  workflow_dispatch:
+
+jobs:
+  checkout-and-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+
+      - name: setup java
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'zulu'
+          java-version: '8'
+
+      - name: Build with Maven
+        working-directory: ./app/
+        run: mvn clean package
+
+      - name: save artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: scan-target
+          path: app/target/verademo.war
