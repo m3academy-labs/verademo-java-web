@@ -26,4 +26,3 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: scan-target
-          path: app/target/verademo.war
