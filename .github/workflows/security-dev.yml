@@ -69,6 +69,5 @@ jobs:
           vid: ${{ secrets.VID }}
           vkey: ${{ secrets.VKEY }}
           file: "verademo.war"
-		  issue_details: true
           fail_build: "true"
-
+          issue_details: true
