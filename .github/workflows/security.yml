@@ -45,7 +45,6 @@ jobs:
   veracode-container-iac-secrets-scan:
     runs-on: ubuntu-latest
     name: veracode container/IaC/secrets scan
-    runs-on: ubuntu-latest
 
     steps:
       - name: checkout
