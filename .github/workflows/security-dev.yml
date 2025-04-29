@@ -18,6 +18,5 @@ jobs:
         run: |
           sudo apt-get install python3-pip httpie jq -y
           pip3 install veracode-api-signing
-          APPID=$(http --auth-type=veracode_hmac GET "https://api.veracode.com/appsec/v1/applications/?name=m3academy-java-web" | jq '._embedded.applications | .[].id')
-          echo "$APPID
+          http --auth-type=veracode_hmac GET "https://api.veracode.com/appsec/v1/applications/?name=m3academy-java-web" | jq '._embedded.applications | .[].id'
 
