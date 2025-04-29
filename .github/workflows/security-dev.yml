@@ -27,8 +27,7 @@ jobs:
           VERACODE_API_KEY_ID: ${{ secrets.VID }}
           VERACODE_API_KEY_SECRET: ${{ secrets.VKEY }}
         run: |
-          WRAPPER_VERSION=$(curl https://repo1.maven.org/maven2/com/veracode/vosp/api/wrappers/vosp-api-wrappers-java/maven-metadata.xml | grep latest |  cut -d ">" -f 2 | cut -d "<" -f 1)
+          WRAPPER_VERSION=24.10.15.0
           curl -o veracode-wrapper.jar https://repo1.maven.org/maven2/com/veracode/vosp/api/wrappers/vosp-api-wrappers-java/$(WRAPPER_VERSION)/vosp-api-wrappers-java-$(WRAPPER_VERSION).jar
           APPID=$(java -jar veracode-wrapper.jar -vid ${VERACODE_API_KEY_ID} -vkey ${VERACODE_API_KEY_SECRET} -action getapplist | grep "m3academy-java-web" | grep -Po 'app_id="\K.*?(?=")')
           echo ${APPID}
-
